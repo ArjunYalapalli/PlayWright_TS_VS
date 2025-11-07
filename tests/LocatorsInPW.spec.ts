@@ -26,4 +26,9 @@ const searchBox:Locator = page.getByTitle('Search store')
 await searchBox.fill('Apple MacBook Pro 13-inch');
 await expect(searchBox).toHaveValue('Apple MacBook Pro 13-inch');
 
+//3) page.getByRole() - locates elements by their ARIA role. use this locator to find elements based on their semantic roles, such as buttons, links, headings, and form controls.
+const loginLink:Locator = page.getByRole('link', {name: 'Log in'});
+await loginLink.click();
+await expect(page).toHaveURL(/.*login/);
+
 })
